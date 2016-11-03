@@ -1,43 +1,41 @@
 // business logic
-function Player1() {
-  this.totalScore = 0;
-  this.runningScore = 0;
+function Dice() {
+  this.diceRoll = 0;
+  // this.runningScore = 0;
 }
 
+// function Player1() {
+//   this.totalScore = 0;
+// }
 
-Player1.prototype.rollDice = function() {
-
+Dice.prototype.rollDice = function() {
   var diceRoll = Math.floor((Math.random()*6)+1);
-
-  if (diceRoll === 1) {
-    this.runningScore = 0;
-  } else if (diceRoll !== 1) {
-    this.runningScore += diceRoll;
-  } else if (runningScore >= 100) {
-    alert("game over");
-  }
 }
+
+// Dice.prototype.turnScore = function() {
+//   if (this.diceRoll === 1) {
+//     this.runningScore = 0;
+//   } else if (this.diceRoll !== 1) {
+//     this.runningScore += this.diceRoll;
+//   } else if (this.runningScore >= 100) {
+//     alert("game over");
+//   }
+// }
+
 
 // user logic
 $(document).ready(function(){
 
-  $("form#turn").submit(function(event){
-    event.preventDefault();
+  $("button#playerRoll").click(function() {
 
-    // var userInput = $("button#playerRoll").val();
-    // var userInputHold = $("button#playerHold").val();
-    var player1Turn = new Player1();
+    var newRoll = new Dice();
+    // var newTurn = new Player1();
 
+    $("#rollOne").text(newRoll.rollDice());
 
-
-
-    $("#rollOne").text(diceRoll); // diceRoll currently out of scope, need to find a way to make it global
-
-    $("#turnTotal").text(player1Turn.rollDice()); //
+    // $("#turnTotal").text(newRoll.turnScore());
 
   });
-
-
   //callback for holding
 
 });
